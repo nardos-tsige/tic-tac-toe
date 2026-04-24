@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>⚡ Tic Tac Toe | Solo or Duo — Modern Arena</title>
+  <!--google fonts + font awesome 6(CSS Icons) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!--favicon-->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231f2937' rx='20'/%3E%3Cline x1='25' y1='25' x2='75' y2='75' stroke='%23f87171' stroke-width='8' stroke-linecap='round'/%3E%3Cline x1='75' y1='25' x2='25' y2='75' stroke='%23f87171' stroke-width='8' stroke-linecap='round'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='%2360a5fa' stroke-width='8'/%3E%3C/svg%3E">
+</head>
+<body>
+  <main class="game-wrapper">
+    <div class="game-panel">
+      <div class="title-section">
+        <h1><i class="fas fa-gamepad"></i> Tic Tac Toe <span class="badge">SOLO or DUO</span></h1>
+        <p class="subtitle">smart AI • smooth animations • duel mode</p>
+      </div>
+
+      <!-- mode selection & player names -->
+      <div class="mode-container">
+        <div class="mode-buttons">
+          <button id="singleModeBtn" class="mode-btn"><i class="fas fa-robot"></i> Single Player</button>
+          <button id="twoModeBtn" class="mode-btn"><i class="fas fa-users"></i> Two Player</button>
+        </div>
+        
+        <div class="players-names">
+          <div class="name-field">
+            <label><i class="fas fa-times-circle"></i> Player X</label>
+            <input type="text" id="playerXName" placeholder="X Player" maxlength="12" value="Challenger">
+          </div>
+          <div class="name-field">
+            <label><i class="far fa-circle"></i> Player O</label>
+            <input type="text" id="playerOName" placeholder="O Player" maxlength="12" value="Opponent">
+          </div>
+        </div>
+      </div>
+
+      <!-- scoreboard -->
+      <div class="scoreboard">
+        <div class="score-card" id="scoreXCard">
+          <i class="fas fa-times"></i>
+          <span class="score-name" id="scoreXName">X</span>
+          <span class="score-value" id="scoreX">0</span>
+        </div>
+        <div class="score-divider">VS</div>
+        <div class="score-card" id="scoreOCard">
+          <i class="far fa-circle"></i>
+          <span class="score-name" id="scoreOName">O</span>
+          <span class="score-value" id="scoreO">0</span>
+        </div>
+      </div>
+
+      <!-- game board it's gonna be 3x3 -->
+      <div class="board" id="board">
+        <!-- 9 cells dynamically generated in JS but hardcoded structure for clarity -->
+      </div>
+
+      <!-- turn & status area with animations -->
+      <div class="status-area">
+        <div class="turn-indicator" id="turnIndicator">
+          <i class="fas fa-hourglass-half"></i> 
+          <span id="turnText">Challenger's turn (X)</span>
+        </div>
+        <div class="action-buttons">
+          <button id="restartRoundBtn" class="action-btn"><i class="fas fa-undo-alt"></i> Restart Round</button>
+          <button id="resetGameBtn" class="action-btn reset"><i class="fas fa-trash-alt"></i> Full Reset</button>
+        </div>
+      </div>
+
+      <!-- winner or draw message overlay (floating toast) will appear-->
+      <div id="gameToast" class="game-toast hidden">
+        <i class="fas fa-trophy"></i> <span id="toastMessage">Winner!</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
